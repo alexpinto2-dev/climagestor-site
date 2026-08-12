@@ -14,3 +14,6 @@
 - [x] Atualizar tipografia, azul principal, espaçamentos e hierarquia visual.
 - [x] Tornar os textos dos cards inferiores mais persuasivos sem alterar a lógica.
 - [x] Validar desktop/mobile e salvar um checkpoint da renovação visual.
+- [x] Definir entradas suaves de rolagem com fallback para redução de movimento.
+- [x] Adicionar hover e active states refinados nos botões, cards e painéis.
+- [x] Validar a experiência animada em desktop e mobile.
