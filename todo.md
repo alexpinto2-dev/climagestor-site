@@ -20,3 +20,8 @@
 - [x] Copiar e armazenar a logo do usuário como asset persistente do projeto.
 - [x] Usar a logo criada em uma assinatura visual no CTA final e no rodapé sem distorção.
 - [x] Validar o contraste da logo em desktop e mobile e salvar checkpoint.
+- [x] Remover o bloco de assinatura visual do CTA final.
+- [x] Substituir a marca atual do cabeçalho pela logo criada pelo usuário.
+- [x] Remover o fundo escuro da assinatura e aplicar degradê claro até branco no lado direito.
+- [x] Preparar uma variação da logo para aplicação sobre o fundo claro do topo.
+- [x] Validar topo, rodapé e responsividade e salvar checkpoint.

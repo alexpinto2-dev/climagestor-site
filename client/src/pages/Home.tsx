@@ -25,12 +25,12 @@ import {
   X,
 } from "lucide-react";
 
-const logoSrc = "/manus-storage/climagestor-mark_62807627.png";
 const heroImage = "/manus-storage/climagestor-ac-hero_d410b568.jpg";
 const equipmentImage = "/manus-storage/climagestor-equipment-detail_73008491.jpg";
 const dashboardImage = "/manus-storage/climagestor-dashboard-real_1199e417.png";
 const ordersImage = "/manus-storage/climagestor-orders-real_f2cde02c.png";
-const userLogoSrc = "/manus-storage/climagestor-logo-user_46de25c6.png";
+const userLogoLightSrc = "/manus-storage/climagestor-logo-light_58f57864.png";
+const userLogoHeaderSrc = "/manus-storage/climagestor-logo-header-compact_cf0ee0f1.png";
 const whatsappHref = "https://wa.me/5579988028287?text=Ol%C3%A1%21%20Quero%20conhecer%20o%20ClimaGestor.";
 const authHref = "https://climagestor.lovable.app/auth";
 
@@ -69,7 +69,7 @@ function WindIcon({ size = 23 }: { size?: number }) {
 }
 
 function BrandMark() {
-  return <span className="brand-lockup"><img src={logoSrc} alt="" /><span>Clima<span>Gestor</span></span></span>;
+  return <span className="brand-lockup"><img src={userLogoHeaderSrc} alt="ClimaGestor" /></span>;
 }
 
 function SectionTag({ children }: { children: string }) {
@@ -165,10 +165,10 @@ export default function Home() {
 
         <section className="steps-section section-white scroll-reveal"><div className="container"><div className="section-heading"><SectionTag>Próximos passos</SectionTag><h2>Organize o campo. <span>Ganhe previsibilidade.</span></h2><p>Uma empresa de climatização cresce melhor quando cada atendimento tem histórico, cada técnico tem contexto e cada preventiva tem hora certa.</p></div><div className="steps-grid scroll-reveal-stagger">{nextSteps.map((step) => <article className="step-card" key={step.number}><span className="step-number">{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></article>)}</div></div></section>
 
-        <section id="contato" className="contact-section scroll-reveal"><div className="container"><div className="section-heading"><SectionTag>Comece agora em Aracaju</SectionTag><h2>Vamos testar <span>juntos?</span></h2><p>Estamos selecionando empresas de Aracaju e região para usar e ajustar o ClimaGestor na prática. Uma oportunidade de conhecer o sistema sem compromisso e sem custo inicial.</p></div><div className="brand-signature scroll-reveal"><div className="brand-signature-visual"><img src={userLogoSrc} alt="Logotipo ClimaGestor com pétala de gelo, nuvem e gráfico de gestão" /></div><div className="brand-signature-copy"><span className="brand-signature-kicker">Identidade ClimaGestor</span><h3>Uma marca que une climatização e gestão.</h3><p>O símbolo criado para o ClimaGestor traduz o que a plataforma entrega: mais clareza para o campo e mais controle para a empresa.</p></div></div><div className="contact-cards scroll-reveal-stagger"><article><div className="contact-icon"><Sparkles size={21} /></div><h3>Acesso Gratuito</h3><p>Teste com os dados da sua operação e veja o ganho de clareza antes de decidir.</p></article><article><div className="contact-icon"><Wrench size={21} /></div><h3>Ajustes Personalizados</h3><p>A gente adapta a rotina do sistema ao jeito que sua equipe realmente trabalha.</p></article><article><div className="contact-icon"><ShieldCheck size={21} /></div><h3>Sem Custo Inicial</h3><p>Comece sem risco e valide o valor do ClimaGestor no dia a dia da sua empresa.</p></article></div><div className="contact-bottom scroll-reveal"><p>Quer ver sua operação organizada de verdade? Fale com um especialista e agende uma demonstração com seus próprios dados.</p><div className="contact-actions"><a href={whatsappHref} target="_blank" rel="noreferrer" className="button button--primary">Falar no WhatsApp <PhoneCall size={16} /></a><a href={authHref} target="_blank" rel="noreferrer" className="button button--outline">Testar Grátis <ArrowRight size={16} /></a></div></div></div></section>
+        <section id="contato" className="contact-section scroll-reveal"><div className="container"><div className="section-heading"><SectionTag>Comece agora em Aracaju</SectionTag><h2>Vamos testar <span>juntos?</span></h2><p>Estamos selecionando empresas de Aracaju e região para usar e ajustar o ClimaGestor na prática. Uma oportunidade de conhecer o sistema sem compromisso e sem custo inicial.</p></div><div className="contact-cards scroll-reveal-stagger"><article><div className="contact-icon"><Sparkles size={21} /></div><h3>Acesso Gratuito</h3><p>Teste com os dados da sua operação e veja o ganho de clareza antes de decidir.</p></article><article><div className="contact-icon"><Wrench size={21} /></div><h3>Ajustes Personalizados</h3><p>A gente adapta a rotina do sistema ao jeito que sua equipe realmente trabalha.</p></article><article><div className="contact-icon"><ShieldCheck size={21} /></div><h3>Sem Custo Inicial</h3><p>Comece sem risco e valide o valor do ClimaGestor no dia a dia da sua empresa.</p></article></div><div className="contact-bottom scroll-reveal"><p>Quer ver sua operação organizada de verdade? Fale com um especialista e agende uma demonstração com seus próprios dados.</p><div className="contact-actions"><a href={whatsappHref} target="_blank" rel="noreferrer" className="button button--primary">Falar no WhatsApp <PhoneCall size={16} /></a><a href={authHref} target="_blank" rel="noreferrer" className="button button--outline">Testar Grátis <ArrowRight size={16} /></a></div></div></div></section>
       </main>
 
-      <footer className="site-footer"><div className="container footer-inner"><div className="footer-brand"><div className="footer-logo-visual"><img src={userLogoSrc} alt="Logotipo ClimaGestor" /></div><p>Gestão completa para empresas de ar-condicionado e refrigeração.</p></div><div className="footer-links"><a href="#solucao">Solução</a><a href="#recursos">Recursos</a><a href="#pmoc">PMOC</a><a href="#contato">Falar com o time</a></div><div className="footer-meta"><span>© 2026 ClimaGestor</span><span>Aracaju e região</span></div></div></footer>
+      <footer className="site-footer"><div className="container footer-inner"><div className="footer-brand"><div className="footer-logo-visual"><img src={userLogoLightSrc} alt="Logotipo ClimaGestor" /></div><p>Gestão completa para empresas de ar-condicionado e refrigeração.</p></div><div className="footer-links"><a href="#solucao">Solução</a><a href="#recursos">Recursos</a><a href="#pmoc">PMOC</a><a href="#contato">Falar com o time</a></div><div className="footer-meta"><span>© 2026 ClimaGestor</span><span>Aracaju e região</span></div></div></footer>
     </div>
   );
 }
