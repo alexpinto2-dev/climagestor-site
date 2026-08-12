@@ -17,3 +17,6 @@
 - [x] Definir entradas suaves de rolagem com fallback para redução de movimento.
 - [x] Adicionar hover e active states refinados nos botões, cards e painéis.
 - [x] Validar a experiência animada em desktop e mobile.
+- [x] Copiar e armazenar a logo do usuário como asset persistente do projeto.
+- [x] Usar a logo criada em uma assinatura visual no CTA final e no rodapé sem distorção.
+- [x] Validar o contraste da logo em desktop e mobile e salvar checkpoint.
