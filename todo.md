@@ -5,3 +5,7 @@
 - [x] Reorganizar as seções em torno de atendimento, agenda, equipes em campo, PMOC, preventivas, estoque e inteligência operacional.
 - [x] Implementar a nova composição visual sem reaproveitar a narrativa equivocada de CRM genérico.
 - [x] Validar desktop e mobile contra a referência e preparar um novo checkpoint.
+- [x] Configurar o WhatsApp real `55 79 98802-8287` nos CTAs.
+- [x] Direcionar “Testar Grátis” para `https://climagestor.lovable.app/auth`.
+- [x] Incorporar os screenshots reais de painel e ordens de serviço fornecidos pelo usuário.
+- [x] Aplicar fundos em degradê muito suave e validar contraste em desktop/mobile.
