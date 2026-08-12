@@ -1,70 +1,65 @@
-# Direção visual — ClimaGestor
+# ClimaGestor — Especificação visual e de conteúdo
 
-## Três caminhos possíveis
+## Referência ground truth
 
-### Abordagem 1 — Editorial Operacional
-Uma estética de revista de negócios contemporânea: fundo marfim, tinta azul-petróleo, detalhes coral e composição assimétrica para comunicar clareza e ritmo comercial.
-**Probabilidade:** 0,07
+O PDF anexado **ClimaGestor(1).pdf** é a referência principal para a reconstrução. A página deve comunicar um SaaS de gestão completa para empresas e técnicos de ar-condicionado e refrigeração, com foco em Aracaju e região. A fidelidade à referência visual e à proposta setorial tem prioridade sobre a direção anterior.
 
-### Abordagem 2 — Oficina Solar
-Uma linguagem mais calorosa, com amarelo solar, azul cerúleo, ilustrações vetoriais e blocos modulares que deixam o produto mais acessível e humano.
-**Probabilidade:** 0,04
+## Design Movement
 
-### Abordagem 3 — Sala de Controle
-Uma experiência mais densa e noturna, com carvão, verde-lima e visual de painel tático para enfatizar automação, métricas e performance em tempo real.
-**Probabilidade:** 0,09
+SaaS institucional contemporâneo com influência de apresentações comerciais B2B: fundo quase branco, tipografia azul-marinho forte, cards de bordas suaves, azul-claro como área de apoio e CTA azul mais saturado. A sensação é de software confiável, organizado e pronto para a operação de campo.
 
-## Abordagem escolhida — Editorial Operacional
+## Core Principles
 
-### Design Movement
-Swiss International Style reinterpretado para produtos SaaS B2B: tipografia editorial, hierarquia rigorosa, linhas de orientação e assimetria funcional.
+- **Setorial antes de genérico:** cada seção deve falar de aparelhos, BTUs, PMOC, preventivas, ordens de serviço e técnicos em campo.
+- **Clareza em blocos:** títulos diretos, textos curtos e cards que organizam benefícios sem excesso de decoração.
+- **Azul como confiança:** a cor primária deve carregar marca, hierarquia e conversão; verde fica restrito a estados de operação e gestão de ativos.
+- **Demonstração concreta:** imagens e prévias de produto devem parecer uma ferramenta real para uma empresa de climatização.
 
-### Core Principles
-- **Clareza com tensão visual:** espaços amplos contrastam com painéis densos, fazendo o produto parecer organizado sem ficar estéril.
-- **Dados como narrativa:** números, etiquetas e micrográficos entram na composição como elementos editoriais, não como ornamento.
-- **Precisão humana:** superfícies com bordas finas, textura de papel e acentos quentes equilibram a racionalidade do CRM.
-- **Conversão sem ruído:** cada seção tem uma única ideia principal e um próximo passo evidente.
+## Color Philosophy
 
-### Color Philosophy
-O marfim `#F3F0E9` funciona como papel de trabalho: transmite calma e maturidade. O azul-petróleo `#123B43` é a assinatura de confiança, mais sofisticada do que o azul SaaS convencional. O coral queimado `#E6684A` aparece apenas em ações, alertas e pontos de energia; ele dá urgência sem transformar a página em uma tela promocional gritante.
+O azul-marinho `#0F2B63` é a assinatura da marca: transmite confiança operacional e leitura institucional. O azul de ação `#0B57D0` é usado em botões e links de conversão. O azul-claro `#DCEEFF` cria zonas de respiro e dá ao produto uma sensação técnica, leve e acessível. O fundo `#F7F9FC` substitui o branco puro para manter a página acolhedora. O verde `#1D6A46` aparece na gestão de ativos porque remete a manutenção em dia e operação saudável.
 
-### Layout Paradigm
-Composição assimétrica em duas colunas, com a narrativa ancorada à esquerda e um “recorte de produto” flutuando à direita. As seções seguintes alternam bordas, margens e ritmos — evitando o padrão de cards perfeitamente centralizados.
+## Layout Paradigm
 
-### Signature Elements
-- Régua vertical com índice de seção e pequenos marcadores de progresso.
-- Painel de CRM com cabeçalho de janela, tags de status e linhas de dados em miniatura.
-- Fios, pontos e sublinhados coral que conectam a mensagem de negócio aos detalhes do produto.
+Hero em duas colunas, com copy à esquerda e foto setorial à direita dentro de um recorte curvo. Depois, seções em container central com grids de 3 e 2 colunas, alternando fundo claro, branco e azul-claro. A estrutura deve se parecer com um one-pager comercial: leitura vertical muito evidente, sem navegação complexa.
 
-### Interaction Philosophy
-As interações devem parecer um ajuste fino de uma ferramenta de trabalho: hover com deslocamento de poucos pixels, foco bem visível, botões que respondem imediatamente e navegação que conduz o olhar sem interromper o raciocínio.
+## Signature Elements
 
-### Animation
-Entradas curtas em fade + translate de 14px, com stagger de 50ms entre os elementos da hero. O dashboard pode ter um pulso quase imperceptível em um indicador de atividade e uma transição de 180ms em botões e linhas interativas. Tudo deve ser desativado para `prefers-reduced-motion`.
+- Etiquetas de seção em cápsulas azul-claro com texto azul-marinho.
+- Cards brancos com bordas discretas, sombras muito suaves e pequenos ícones lineares em azul-claro.
+- Painéis de destaque em azul-claro e verde para representar PMOC, ativos e estados operacionais.
 
-### Typography System
-`DM Sans` para corpo, navegação e dados; `Fraunces` em itálico suave para palavras-chave de headlines e chamadas editoriais. Títulos em caixa baixa, com peso alto e tracking levemente negativo. Rótulos operacionais em `DM Sans` semibold, 11–12px, com espaçamento de 0.16em.
+## Interaction Philosophy
 
-### Brand Essence
-**ClimaGestor é o CRM que transforma o clima do time em cadência comercial — para pequenas e médias empresas que precisam vender com mais consistência, não com mais planilhas.**
+As interações são de uma ferramenta confiável: hover suave nos cards, botões com resposta imediata, accordion de dúvidas simples e navegação por âncoras. O foco visual deve continuar no conteúdo; nada deve competir com os CTAs “Testar Grátis” e “Falar no WhatsApp”.
 
-Personalidade: **lúcido, próximo, resolutivo**.
+## Animation
 
-### Brand Voice
-Headlines são diretas e têm uma imagem concreta. CTAs soam como uma próxima ação real, nunca como promessa vazia. Microcopy reduz ansiedade e explica o que acontece depois.
+Entradas discretas em fade + translate de 10px, com 40ms de stagger entre cards. O hero pode revelar a imagem e o texto em sequência. Todos os movimentos devem respeitar `prefers-reduced-motion` e permanecer abaixo de 240ms.
+
+## Typography System
+
+`Manrope` para toda a interface, com peso 500 para corpo, 700 para subtítulos e 800 para headlines. Títulos em azul-marinho, com tracking negativo moderado e largura controlada. Labels de seção em 11–12px, semibold e caixa alta.
+
+## Brand Essence
+
+**ClimaGestor é a central de operação para empresas de ar-condicionado que querem atender melhor, controlar seus equipamentos e crescer sem depender de planilhas e WhatsApp.**
+
+Personalidade: **confiável, prática, técnica**.
+
+## Brand Voice
+
+Headlines são objetivas e específicas. O texto evita jargão desnecessário e sempre traduz tecnologia em ganho operacional. Os CTAs soam próximos e comerciais, como em uma demonstração local.
 
 Exemplos:
-- “Seu time não precisa correr mais. Precisa enxergar melhor.”
-- “Abra seu próximo ciclo comercial.”
 
-### Wordmark & Logo
-Símbolo sem texto formado por três barras verticais de alturas diferentes, conectadas por uma curva curta na base — uma leitura abstrata de clima, ritmo e crescimento. O wordmark usa `DM Sans` em semibold, com o ponto do “i” substituído por um pequeno círculo coral.
+- “Organize clientes, equipamentos e ordens de serviço em um só lugar.”
+- “Vamos testar juntos?”
 
-### Signature Brand Color
-**Azul Clima `#123B43`** — um azul-petróleo profundo, proprietário e legível, que posiciona a marca entre a confiança de uma ferramenta de negócios e a proximidade de um time que acompanha o dia a dia.
+## Wordmark & Logo
 
-## Decisões de estilo
+Usar o nome ClimaGestor em wordmark tipográfico azul-marinho com o símbolo original de três barras como apoio visual pequeno. O logotipo deve aparecer com muita área de respiro no hero e no rodapé, seguindo o PDF.
 
-- A página usará fundo marfim e azul-petróleo como base, com coral queimado apenas para CTA e estados de atenção.
-- O dashboard ilustrativo será construído como UI fiel ao domínio, evitando imagens genéricas de pessoas em reunião.
-- O conteúdo será em português brasileiro, com tom B2B acessível e sem depoimentos ou métricas inventadas.
+## Signature Brand Color
+
+**Azul Clima `#0F2B63`** — azul-marinho proprietário que comunica controle, confiança e organização de operação.

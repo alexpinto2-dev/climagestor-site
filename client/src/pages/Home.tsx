@@ -1,139 +1,87 @@
-/* ClimaGestor — Editorial Operacional: assimetria funcional, azul-petróleo, coral queimado e dados como narrativa. */
+/* ClimaGestor — Referência PDF: SaaS institucional para climatização, com foco em clientes, ativos, PMOC, OS, equipe e WhatsApp. */
 import { useEffect, useState } from "react";
 import {
-  ArrowDownRight,
-  ArrowUpRight,
+  ArrowRight,
+  BadgeCheck,
   BarChart3,
-  Bell,
+  BellRing,
+  Bot,
+  Building2,
+  CalendarDays,
   Check,
-  ChevronDown,
-  ChevronRight,
-  CircleHelp,
-  Clock3,
-  Command,
-  Grid2X2,
+  CheckCircle2,
+  ClipboardCheck,
+  ClipboardList,
+  Gauge,
   Menu,
-  MessageCircle,
-  MoreHorizontal,
-  Plus,
-  Search,
-  Settings2,
+  MessagesSquare,
+  PackageSearch,
+  PhoneCall,
+  ShieldCheck,
   Sparkles,
-  Target,
   UserRound,
   UsersRound,
+  Wrench,
   X,
-  Zap,
 } from "lucide-react";
 
 const logoSrc = "/manus-storage/climagestor-mark_62807627.png";
-const heroTexture = "/manus-storage/climagestor-hero-texture_3570dbd6.png";
-const workflowCollage = "/manus-storage/climagestor-workflow-collage_9ad765b8.png";
-const footerPattern = "/manus-storage/climagestor-footer-pattern_4859a859.png";
+const heroImage = "/manus-storage/climagestor-ac-hero_d410b568.jpg";
+const technicianImage = "/manus-storage/climagestor-technician_8e42b4fa.jpg";
+const equipmentImage = "/manus-storage/climagestor-equipment-detail_73008491.jpg";
 
-const navItems = [
-  { label: "Como funciona", href: "#como-funciona" },
-  { label: "Recursos", href: "#recursos" },
-  { label: "Para quem é", href: "#para-quem-e" },
+const problems = [
+  { icon: ClipboardList, title: "Planilhas e papéis perdidos", text: "Informações se perdem em campo, gerando retrabalho e erros constantes." },
+  { icon: ShieldCheck, title: "PMOC sem controle digital", text: "Atender à legislação sem ferramentas adequadas é complexo e arriscado." },
+  { icon: UserRound, title: "Clientes perdidos por falta de histórico", text: "Sem agendamento e controle, a recorrência vai embora sem aviso." },
+  { icon: MessagesSquare, title: "Informações espalhadas no WhatsApp", text: "Chamados, detalhes e históricos ficam dispersos em conversas informais." },
+  { icon: BellRing, title: "Preventivas esquecidas", text: "Sem alertas automáticos, fica difícil acompanhar o que cada técnico fez." },
+  { icon: Wrench, title: "Retrabalho e perda de histórico", text: "A operação depende demais da memória e do WhatsApp." },
 ];
 
-const pipelines = [
-  { name: "Novos contatos", count: "18", color: "terracotta" },
-  { name: "Em conversa", count: "07", color: "teal" },
-  { name: "Proposta enviada", count: "04", color: "gold" },
+const modules = [
+  { icon: UsersRound, title: "Cadastro de Clientes", text: "Perfil completo com histórico de atendimentos e equipamentos por cliente." },
+  { icon: WindIcon, title: "Equipamentos por Cliente", text: "Registre marca, modelo, BTUs e localização de cada aparelho." },
+  { icon: ClipboardList, title: "Ordens de Serviço", text: "Acompanhe tudo, do chamado ao fechamento, sem perder detalhes." },
+  { icon: CalendarDays, title: "Manutenção Preventiva", text: "Controle e receba alertas para nunca perder uma preventiva." },
+  { icon: BarChart3, title: "Dashboard e Relatórios", text: "Veja os indicadores do negócio e tome decisões com mais segurança." },
+  { icon: MessagesSquare, title: "Conexão em Tempo Real", text: "Escritório e técnicos alinhados, do chamado à conclusão." },
 ];
 
-const faqs = [
-  {
-    question: "O ClimaGestor serve para times pequenos?",
-    answer:
-      "Sim. A plataforma foi desenhada para equipes que precisam de visibilidade e rotina comercial sem criar um projeto de implementação pesado.",
-  },
-  {
-    question: "Preciso abandonar minhas planilhas imediatamente?",
-    answer:
-      "Não. O primeiro passo é organizar o que já acontece, centralizar o contexto e dar ao time um próximo passo claro. A mudança acontece por camadas.",
-  },
-  {
-    question: "Consigo acompanhar o time sem microgerenciar?",
-    answer:
-      "Sim. Os sinais importantes ficam visíveis no painel: prioridades, próximas atividades e saúde do pipeline, sem transformar a rotina em cobrança constante.",
-  },
+const pmocCards = [
+  { icon: ClipboardCheck, title: "Checklists Digitais", text: "Elimine o risco de erros e extravios de papelada. Tudo registrado e rastreável." },
+  { icon: BadgeCheck, title: "Conformidade Total", text: "Registros precisos que garantem qualidade do atendimento às normas vigentes." },
+  { icon: ShieldCheck, title: "Proteção Legal", text: "Evite multas e complicações com documentação completa e auditável." },
 ];
 
-function BrandMark({ light = false }: { light?: boolean }) {
-  return (
-    <span className={`brand-lockup ${light ? "brand-lockup--light" : ""}`}>
-      <img src={logoSrc} alt="" className="brand-mark" />
-      <span className="brand-name">
-        Clima<span>Gestor</span>
-      </span>
-    </span>
-  );
+const nextSteps = [
+  { number: "1", title: "Elimine gargalos operacionais", text: "Automatize processos manuais e libere sua equipe para o que realmente importa." },
+  { number: "2", title: "Profissionalize cada atendimento", text: "Mostre ao cliente a diferença entre uma empresa organizada e uma amadora." },
+  { number: "3", title: "Agende uma demonstração gratuita", text: "Veja o sistema funcionando com os dados reais da sua operação." },
+];
+
+function WindIcon({ size = 23 }: { size?: number }) {
+  return <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 8h11a3 3 0 1 0-3-3" /><path d="M3 12h15a3 3 0 1 1-3 3" /><path d="M3 16h7a3 3 0 1 0-3 3" /></svg>;
 }
 
-function DashboardPreview() {
+function BrandMark() {
+  return <span className="brand-lockup"><img src={logoSrc} alt="" /><span>Clima<span>Gestor</span></span></span>;
+}
+
+function SectionTag({ children }: { children: string }) {
+  return <span className="section-tag">{children}</span>;
+}
+
+function ProductMockup() {
   return (
-    <div className="dashboard-shell" aria-label="Prévia do painel do ClimaGestor">
-      <div className="dashboard-topbar">
-        <div className="window-dots" aria-hidden="true">
-          <span />
-          <span />
-          <span />
-        </div>
-        <span className="window-title">climagestor / visão geral</span>
-        <div className="window-actions">
-          <Search size={14} />
-          <Bell size={14} />
-          <span className="avatar avatar--tiny">LM</span>
-        </div>
-      </div>
-      <div className="dashboard-body">
-        <aside className="dashboard-rail">
-          <div className="rail-logo">
-            <img src={logoSrc} alt="" />
-          </div>
-          <div className="rail-menu">
-            <span className="rail-item rail-item--active"><Grid2X2 size={15} /></span>
-            <span className="rail-item"><UsersRound size={15} /></span>
-            <span className="rail-item"><Target size={15} /></span>
-            <span className="rail-item"><BarChart3 size={15} /></span>
-          </div>
-          <span className="rail-item rail-item--bottom"><Settings2 size={15} /></span>
-        </aside>
-        <div className="dashboard-content">
-          <div className="dashboard-heading">
-            <div>
-              <p className="dashboard-kicker">terça, 18 de junho</p>
-              <h3>Bom dia, Laura<span className="coral-dot">.</span></h3>
-            </div>
-            <button className="dashboard-add" type="button"><Plus size={14} /> Novo contato</button>
-          </div>
-          <div className="signal-row">
-            <div className="signal-card signal-card--wide">
-              <div className="signal-label"><span className="signal-icon signal-icon--coral"><Zap size={13} /></span> Sinal do dia</div>
-              <div className="signal-value">12 <small>tarefas para hoje</small></div>
-              <div className="signal-foot"><span className="signal-positive"><ArrowUpRight size={12} /> 3 desde ontem</span><span>ver agenda</span></div>
-            </div>
-            <div className="signal-card">
-              <div className="signal-label"><span className="signal-icon signal-icon--teal"><Target size={13} /></span> Pipeline</div>
-              <div className="signal-value">R$ 48<span className="signal-suffix">k</span></div>
-              <div className="mini-bars"><i style={{ height: "35%" }} /><i style={{ height: "62%" }} /><i style={{ height: "48%" }} /><i style={{ height: "78%" }} /><i style={{ height: "92%" }} /></div>
-            </div>
-          </div>
-          <div className="pipeline-card">
-            <div className="pipeline-head"><div><p className="dashboard-kicker">ritmo comercial</p><h4>O que merece atenção</h4></div><MoreHorizontal size={16} /></div>
-            <div className="pipeline-grid">
-              {pipelines.map((pipeline) => (
-                <div className="pipeline-column" key={pipeline.name}>
-                  <div className="pipeline-column-head"><span className={`pipeline-dot pipeline-dot--${pipeline.color}`} />{pipeline.name}<b>{pipeline.count}</b></div>
-                  <div className="pipeline-ticket"><span className="ticket-avatar ticket-avatar--blue">AR</span><div><b>Arco Contábil</b><small>Retomar amanhã</small></div><ChevronRight size={13} /></div>
-                  <div className="pipeline-ticket"><span className="ticket-avatar ticket-avatar--coral">NV</span><div><b>Nuvem Verde</b><small>Enviar proposta</small></div><ChevronRight size={13} /></div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="dashboard-footer-note"><span className="live-pulse" /> Dados atualizados agora <span>·</span> time conectado</div>
+    <div className="product-mockup" aria-label="Prévia do painel ClimaGestor">
+      <div className="mockup-top"><span className="mockup-title"><span className="mockup-logo"><Gauge size={12} /></span> Visão geral</span><span className="mockup-date">Hoje, 18 Jun <BellRing size={13} /></span></div>
+      <div className="mockup-main">
+        <div className="mockup-sidebar"><span className="mockup-sidebar-active"><Gauge size={15} /></span><span><UsersRound size={15} /></span><span><ClipboardList size={15} /></span><span><CalendarDays size={15} /></span><span><BarChart3 size={15} /></span></div>
+        <div className="mockup-content">
+          <div className="mockup-heading"><div><small>RESUMO DA OPERAÇÃO</small><h3>Bom dia, equipe.</h3></div><button type="button"><span>+</span> Nova OS</button></div>
+          <div className="mockup-metrics"><div><small>ORDENS EM ABERTO</small><strong>18</strong><em><ArrowRight size={11} /> ver ordens</em></div><div><small>PREVENTIVAS PRÓXIMAS</small><strong>07</strong><em className="metric-green"><Check size={11} /> em dia</em></div><div><small>CLIENTES ATIVOS</small><strong>124</strong><em><ArrowRight size={11} /> ver clientes</em></div></div>
+          <div className="mockup-table"><div className="mockup-table-head"><span>ATIVIDADES RECENTES</span><span>ver tudo</span></div><div className="mockup-row"><span className="status-dot status-dot--blue" /><div><b>Manutenção preventiva</b><small>Clínica Horizonte · Técnico: João</small></div><strong>Hoje, 14:30</strong></div><div className="mockup-row"><span className="status-dot status-dot--green" /><div><b>Ordem de serviço #1042</b><small>Residencial Atalaia · Em andamento</small></div><strong>Amanhã</strong></div><div className="mockup-row"><span className="status-dot status-dot--orange" /><div><b>Preventiva vencida</b><small>Comercial Jardins · Agendar retorno</small></div><strong>Prioridade</strong></div></div>
         </div>
       </div>
     </div>
@@ -141,12 +89,11 @@ function DashboardPreview() {
 }
 
 export default function Home() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 48);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
@@ -158,77 +105,45 @@ export default function Home() {
     <div className="site-shell">
       <header className={`site-nav ${scrolled ? "site-nav--scrolled" : ""}`}>
         <div className="nav-inner">
-          <a href="#top" onClick={closeMenu} aria-label="ClimaGestor, voltar ao topo"><BrandMark light={!scrolled} /></a>
+          <a href="#inicio" onClick={closeMenu} aria-label="ClimaGestor, voltar ao início"><BrandMark /></a>
           <nav className={`nav-links ${menuOpen ? "nav-links--open" : ""}`} aria-label="Navegação principal">
-            {navItems.map((item) => <a key={item.href} href={item.href} onClick={closeMenu}>{item.label}</a>)}
-            <a href="#faq" onClick={closeMenu}>Dúvidas</a>
-            <a className="mobile-nav-cta" href="#comece-agora" onClick={closeMenu}>Conhecer o ClimaGestor <ArrowUpRight size={15} /></a>
+            <a href="#solucao" onClick={closeMenu}>Solução</a>
+            <a href="#recursos" onClick={closeMenu}>Recursos</a>
+            <a href="#pmoc" onClick={closeMenu}>PMOC</a>
+            <a href="#contato" onClick={closeMenu}>Contato</a>
           </nav>
-          <div className="nav-actions">
-            <a className="nav-login" href="#comece-agora">Entrar</a>
-            <a className="button button--nav" href="#comece-agora">Conhecer o ClimaGestor <ArrowUpRight size={15} /></a>
-          </div>
-          <button className="menu-button" type="button" aria-label={menuOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          <div className="nav-actions"><a href="#contato" className="nav-whatsapp"><PhoneCall size={14} /> Falar no WhatsApp</a><a href="#contato" className="button button--primary button--small">Testar Grátis <ArrowRight size={15} /></a></div>
+          <button className="menu-button" type="button" aria-label={menuOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={22} /> : <Menu size={22} />}</button>
         </div>
       </header>
 
       <main>
-        <section id="top" className="hero-section" style={{ backgroundImage: `linear-gradient(110deg, rgba(18,59,67,.98) 0%, rgba(18,59,67,.91) 48%, rgba(18,59,67,.58) 100%), url(${heroTexture})` }}>
-          <div className="hero-grid-lines" aria-hidden="true" />
+        <section id="inicio" className="hero-section">
           <div className="hero-inner">
-            <div className="hero-copy">
-              <div className="eyebrow eyebrow--light"><span className="eyebrow-marker" /> CRM para times que vendem</div>
-              <h1>Seu time não precisa correr mais. <em>Precisa enxergar melhor.</em></h1>
-              <p className="hero-lead">O ClimaGestor organiza contatos, próximos passos e o ritmo do seu pipeline em um só lugar — para o comercial voltar a ter contexto, não só cobrança.</p>
-              <div className="hero-actions">
-                <a className="button button--coral" href="#comece-agora">Abra seu próximo ciclo <ArrowUpRight size={17} /></a>
-                <a className="text-link text-link--light" href="#como-funciona">Ver como funciona <ArrowDownRight size={16} /></a>
-              </div>
-              <div className="hero-reassurance"><span className="reassurance-icon"><Check size={12} /></span> Sem implementação pesada <span className="reassurance-separator">·</span> Feito para a rotina real</div>
-            </div>
-            <div className="hero-product"><DashboardPreview /><div className="product-caption"><span className="caption-index">01</span><span>Uma visão que ajuda o time a decidir o próximo passo.</span><span className="caption-line" /></div></div>
+            <div className="hero-copy"><div className="eyebrow"><span className="eyebrow-line" /> Gestão para climatização</div><h1>Organize clientes, equipamentos e ordens de serviço <span>em um só lugar.</span></h1><p>Feito para empresas e técnicos de ar-condicionado e refrigeração de Aracaju e região. Centralize toda a sua operação e saia do caos das planilhas manuais.</p><div className="hero-actions"><a href="#contato" className="button button--primary">Testar Grátis <ArrowRight size={17} /></a><a href="#contato" className="button button--outline"><PhoneCall size={16} /> Falar no WhatsApp</a></div><div className="hero-note"><CheckCircle2 size={15} /> Comece a testar com os dados reais da sua operação</div></div>
+            <div className="hero-image-wrap"><div className="hero-image"><img src={heroImage} alt="Aparelho split instalado em um ambiente comercial iluminado" /></div><div className="hero-image-label"><span>ClimaGestor / 01</span><span>Operação em um só lugar</span></div></div>
           </div>
-          <div className="hero-bottom-line"><span>ClimaGestor / visão comercial</span><span>Role para explorar <ArrowDownRight size={15} /></span></div>
+          <div className="hero-scroll"><span>Uma gestão mais clara para quem está em campo</span><span className="hero-scroll-line" /></div>
         </section>
 
-        <section className="signal-band" aria-label="Posicionamento do produto">
-          <div className="signal-band-inner"><p>Para negócios que querem vender</p><div className="signal-words"><span>com consistência.</span><span>com contexto.</span><span>com calma.</span></div><span className="signal-band-mark">↘</span></div>
-        </section>
+        <section className="intro-strip"><div><span className="intro-number">01</span><p>Se a sua empresa ainda depende de planilhas, papéis e mensagens soltas, o problema não é falta de esforço. É falta de uma operação conectada.</p></div><div className="intro-accent"><Building2 size={22} /><span>Feito para a rotina real de empresas de ar-condicionado.</span></div></section>
 
-        <section id="como-funciona" className="story-section section-paper">
-          <div className="section-index"><span>02</span><i /></div>
-          <div className="story-layout">
-            <div className="story-intro"><div className="eyebrow"><span className="eyebrow-marker" /> Como funciona</div><h2>Menos clima de urgência. <em>Mais cadência.</em></h2><p>Quando cada pessoa sabe o que precisa acontecer agora, o time para de recomeçar conversas e começa a construir continuidade.</p><a className="text-link" href="#recursos">Conhecer os recursos <ArrowUpRight size={16} /></a></div>
-            <div className="story-visual"><div className="visual-note visual-note--top"><span>01</span><b>Contexto em movimento</b></div><img src={workflowCollage} alt="Colagem editorial representando contatos, etapas e próximos passos conectados" /><div className="visual-note visual-note--bottom"><span>+</span><b>Próximo passo sempre à vista</b></div></div>
-          </div>
-          <div className="principle-grid" id="para-quem-e">
-            <article className="principle"><span className="principle-number">01</span><div><h3>Veja o todo.</h3><p>Pipeline, contatos e atividades contam a mesma história — sem abas perdidas.</p></div></article>
-            <article className="principle"><span className="principle-number">02</span><div><h3>Escolha o agora.</h3><p>Prioridades claras para o time agir antes que uma boa conversa esfrie.</p></div></article>
-            <article className="principle"><span className="principle-number">03</span><div><h3>Aprenda o ritmo.</h3><p>Uma operação que mostra padrões para você ajustar a rota com leveza.</p></div></article>
-          </div>
-        </section>
+        <section id="problema" className="problem-section section-white"><div className="container"><div className="section-heading section-heading--center"><SectionTag>O problema</SectionTag><h2>O desafio do setor: <span>o caos invisível.</span></h2><p>O dia a dia da maioria das empresas de climatização é marcado por processos manuais que consomem tempo e geram retrabalho.</p></div><div className="problem-grid">{problems.map(({ icon: Icon, title, text }) => <article className="problem-card" key={title}><Icon size={22} /><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
 
-        <section id="recursos" className="feature-section">
-          <div className="feature-header"><div><div className="eyebrow"><span className="eyebrow-marker" /> O que muda na rotina</div><h2>Um CRM que respeita o <em>jeito de trabalhar</em> do seu time.</h2></div><p>Ferramentas essenciais, organizadas para que a operação fique mais visível — e a conversa, mais humana.</p></div>
-          <div className="feature-list">
-            <article className="feature-row"><div className="feature-row-index">A / 01</div><div className="feature-row-icon"><UsersRound size={24} /></div><div className="feature-row-copy"><h3>Relacionamentos com memória</h3><p>Registre o contexto de cada conversa, distribua responsabilidades e deixe o histórico trabalhar a favor do próximo contato.</p></div><div className="feature-row-arrow"><ArrowUpRight size={21} /></div></article>
-            <article className="feature-row feature-row--accent"><div className="feature-row-index">A / 02</div><div className="feature-row-icon"><Target size={24} /></div><div className="feature-row-copy"><h3>Pipeline que aponta o caminho</h3><p>Veja onde cada oportunidade está, quais etapas pedem atenção e o que pode avançar sem reunião extra.</p></div><div className="feature-row-arrow"><ArrowUpRight size={21} /></div></article>
-            <article className="feature-row"><div className="feature-row-index">A / 03</div><div className="feature-row-icon"><Command size={24} /></div><div className="feature-row-copy"><h3>Rotinas que se organizam</h3><p>Atividades, lembretes e automações simples para que o time não dependa da memória de uma única pessoa.</p></div><div className="feature-row-arrow"><ArrowUpRight size={21} /></div></article>
-          </div>
-        </section>
+        <section id="solucao" className="solution-section"><div className="container"><div className="section-heading"><SectionTag>A solução</SectionTag><h2>Centralize sua operação <span>em um único lugar.</span></h2><p>O ClimaGestor conecta escritório e equipe técnica em tempo real, eliminando a desorganização e profissionalizando cada atendimento.</p></div><div className="module-grid">{modules.map(({ icon: Icon, title, text }) => <article className="module-card" key={title}><div className="module-icon"><Icon size={22} /></div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
 
-        <section className="operating-section">
-          <div className="operating-inner"><div className="operating-copy"><div className="eyebrow eyebrow--light"><span className="eyebrow-marker" /> Uma operação mais leve</div><h2>O painel não manda no time. <em>Ele dá chão.</em></h2><p>Os sinais aparecem na hora certa: uma proposta sem retorno, um contato que pede cuidado, uma tarefa que pode destravar o dia.</p><div className="operating-checks"><span><Check size={13} /> Visão por etapa</span><span><Check size={13} /> Atividades compartilhadas</span><span><Check size={13} /> Alertas que fazem sentido</span></div><a className="button button--outline-light" href="#comece-agora">Ver o ClimaGestor em ação <ArrowUpRight size={16} /></a></div><div className="operating-board"><div className="board-header"><span><span className="live-pulse live-pulse--dark" /> rotina da semana</span><span>18 — 22 jun <ChevronDown size={14} /></span></div><div className="board-line board-line--active"><div className="board-day"><small>SEG</small><b>17</b></div><div className="board-event board-event--coral"><span className="event-time">09:30</span><div><b>Retomar conversa com Arco</b><small>contato prioritário · 15 min</small></div><ArrowUpRight size={14} /></div></div><div className="board-line"><div className="board-day"><small>TER</small><b>18</b></div><div className="board-event"><span className="event-time">11:00</span><div><b>Revisar propostas abertas</b><small>3 oportunidades aguardando próximo passo</small></div><ArrowUpRight size={14} /></div></div><div className="board-line"><div className="board-day"><small>QUA</small><b>19</b></div><div className="board-event"><span className="event-time">14:20</span><div><b>Alinhar prioridades do time</b><small>ritual comercial · 30 min</small></div><ArrowUpRight size={14} /></div></div><div className="board-line board-line--muted"><div className="board-day"><small>QUI</small><b>20</b></div><div className="board-empty">Um espaço para o próximo movimento.</div></div></div></div>
-        </section>
+        <section id="pmoc" className="pmoc-section"><div className="container"><div className="section-heading section-heading--center"><SectionTag>Conformidade legal</SectionTag><h2>Domine o PMOC com <span>agilidade digital.</span></h2><p>O Plano de Manutenção, Operação e Controle é exigido por lei para sistemas de climatização. Com o ClimaGestor, você cumpre as normas com segurança e sem burocracia.</p></div><div className="pmoc-grid">{pmocCards.map(({ icon: Icon, title, text }) => <article className="pmoc-card" key={title}><div className="pmoc-icon"><Icon size={21} /></div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
 
-        <section id="faq" className="faq-section section-paper"><div className="section-index"><span>03</span><i /></div><div className="faq-layout"><div className="faq-intro"><div className="eyebrow"><span className="eyebrow-marker" /> Antes de começar</div><h2>As perguntas que costumam aparecer <em>antes do primeiro passo.</em></h2><p>Se a sua dúvida não estiver aqui, a conversa continua aberta.</p><a className="text-link" href="mailto:oi@climagestor.com.br">Falar com o time <ArrowUpRight size={16} /></a></div><div className="faq-list">{faqs.map((faq, index) => <div className={`faq-item ${openFaq === index ? "faq-item--open" : ""}`} key={faq.question}><button type="button" onClick={() => setOpenFaq(openFaq === index ? null : index)} aria-expanded={openFaq === index}><span>{faq.question}</span><ChevronDown size={17} /></button>{openFaq === index && <p>{faq.answer}</p>}</div>)}</div></div></section>
+        <section className="assets-section section-white"><div className="container"><div className="section-heading"><SectionTag>Gestão de ativos</SectionTag><h2>Controle real dos aparelhos <span>do cliente.</span></h2><p>Pare de perder a recorrência e o histórico dos equipamentos. Saiba exatamente o que cada cliente tem, onde está instalado e quando precisa de manutenção.</p></div><div className="assets-layout"><div className="asset-list"><div className="asset-list-head"><Wrench size={20} /><h3>O que você registra</h3></div><ul><li>Marca, modelo e capacidade em BTUs</li><li>Local de instalação de cada aparelho</li><li>Histórico completo de serviços realizados</li><li>Controle de preventiva e PMOC básico</li><li>Alertas de preventiva vencida ou próxima</li></ul></div><div className="asset-result"><div className="asset-result-copy"><h3>O resultado na prática</h3><p>Quando um cliente liga, você já sabe quais aparelhos ele tem, quando foi a última manutenção e o que precisa ser feito.</p><div className="result-callout"><Sparkles size={17} /><span>Com histórico organizado, você transforma atendimentos pontuais em contratos de manutenção recorrente.</span></div></div><img src={equipmentImage} alt="Equipamentos e checklist de manutenção organizados em uma bancada" /></div></div></div></section>
 
-        <section id="comece-agora" className="cta-section"><div className="cta-orbit cta-orbit--one" /><div className="cta-orbit cta-orbit--two" /><div className="cta-inner"><div className="eyebrow eyebrow--light"><span className="eyebrow-marker" /> O próximo passo pode ser simples</div><h2>Seu comercial já tem um ritmo. <em>Vamos enxergar juntos?</em></h2><p>Conheça uma forma mais clara de cuidar das oportunidades que movem o seu negócio.</p><a className="button button--coral button--large" href="mailto:oi@climagestor.com.br?subject=Quero conhecer o ClimaGestor">Quero conhecer o ClimaGestor <ArrowUpRight size={18} /></a><span className="cta-footnote">Resposta humana, sem apresentação automática.</span></div></section>
+        <section id="recursos" className="intelligence-section"><div className="container"><div className="section-heading section-heading--center"><SectionTag>Inteligência e automação</SectionTag><h2>Visão estratégica para <span>decisões inteligentes.</span></h2><p>Além de organizar, o ClimaGestor entrega inteligência para você tomar decisões mais rápidas e seguras sobre o seu negócio.</p></div><div className="intelligence-grid"><article className="intelligence-card"><div className="intelligence-image intelligence-image--dashboard"><ProductMockup /></div><div className="intelligence-copy"><BarChart3 size={20} /><div><h3>Dashboards e Relatórios</h3><p>Indicadores de desempenho da equipe, relatórios financeiros automáticos e gestão de estoque para antecipar necessidades de peças.</p></div></div></article><article className="intelligence-card"><div className="intelligence-image"><img src={technicianImage} alt="Técnico de ar-condicionado utilizando tablet durante uma inspeção" /></div><div className="intelligence-copy"><Bot size={20} /><div><h3>Assistente de IA no WhatsApp</h3><p>O cliente manda mensagem, a IA atende e agenda automaticamente. A ordem de serviço nasce direto no painel — sem intervenção manual.</p></div></div></article></div></div></section>
+
+        <section className="steps-section section-white"><div className="container"><div className="section-heading"><SectionTag>Próximos passos</SectionTag><h2>O futuro da sua empresa <span>começa agora.</span></h2><p>Escalar um negócio de climatização exige mais do que esforço — exige tecnologia confiável e processos estruturados.</p></div><div className="steps-grid">{nextSteps.map((step) => <article className="step-card" key={step.number}><span className="step-number">{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></article>)}</div></div></section>
+
+        <section id="contato" className="contact-section"><div className="container"><div className="section-heading"><SectionTag>Comece agora</SectionTag><h2>Vamos testar <span>juntos?</span></h2><p>Estamos selecionando empresas de Aracaju e região para usar e ajustar o ClimaGestor na prática. Uma oportunidade de conhecer o sistema sem compromisso e sem custo inicial.</p></div><div className="contact-cards"><article><div className="contact-icon"><Sparkles size={21} /></div><h3>Acesso Gratuito</h3><p>Demonstração completa e testes com os dados reais da sua operação.</p></article><article><div className="contact-icon"><Wrench size={21} /></div><h3>Ajustes Personalizados</h3><p>O sistema é adaptado conforme a necessidade real do seu negócio.</p></article><article><div className="contact-icon"><ShieldCheck size={21} /></div><h3>Sem Custo Inicial</h3><p>Comece a usar sem investimento. Avalie os resultados antes de decidir.</p></article></div><div className="contact-bottom"><p>Quer conhecer o sistema com os dados da sua operação? Fale com a gente no WhatsApp e agende sua demonstração gratuita.</p><div className="contact-actions"><a href="#contato" className="button button--primary">Falar no WhatsApp <PhoneCall size={16} /></a><a href="#inicio" className="button button--outline">Testar Grátis <ArrowRight size={16} /></a></div></div></div></section>
       </main>
 
-      <footer className="site-footer" style={{ backgroundImage: `linear-gradient(rgba(10, 39, 44, .96), rgba(10, 39, 44, .96)), url(${footerPattern})` }}><div className="footer-main"><div className="footer-brand"><BrandMark light /><p>CRM para times que querem vender com mais contexto e menos correria.</p></div><div className="footer-links"><div><span className="footer-label">Explorar</span><a href="#como-funciona">Como funciona</a><a href="#recursos">Recursos</a><a href="#faq">Dúvidas</a></div><div><span className="footer-label">Conversa</span><a href="mailto:oi@climagestor.com.br">oi@climagestor.com.br</a><a href="#comece-agora">Começar agora <ArrowUpRight size={13} /></a></div></div></div><div className="footer-bottom"><span>© 2026 ClimaGestor</span><span>Feito para a rotina real <span className="coral-dot">.</span></span><span className="footer-mark">CG / 01</span></div></footer>
+      <footer className="site-footer"><div className="container footer-inner"><div className="footer-brand"><BrandMark /><p>Gestão completa para empresas de ar-condicionado e refrigeração.</p></div><div className="footer-links"><a href="#solucao">Solução</a><a href="#recursos">Recursos</a><a href="#pmoc">PMOC</a><a href="#contato">Falar com o time</a></div><div className="footer-meta"><span>© 2026 ClimaGestor</span><span>Aracaju e região</span></div></div></footer>
     </div>
   );
 }
