@@ -9,3 +9,8 @@
 - [x] Direcionar “Testar Grátis” para `https://climagestor.lovable.app/auth`.
 - [x] Incorporar os screenshots reais de painel e ordens de serviço fornecidos pelo usuário.
 - [x] Aplicar fundos em degradê muito suave e validar contraste em desktop/mobile.
+- [x] Reescrever o hero com promessa mais forte e foco claro em Aracaju.
+- [x] Criar uma composição de produto mais premium com screenshot real e camadas sutis.
+- [x] Atualizar tipografia, azul principal, espaçamentos e hierarquia visual.
+- [x] Tornar os textos dos cards inferiores mais persuasivos sem alterar a lógica.
+- [x] Validar desktop/mobile e salvar um checkpoint da renovação visual.

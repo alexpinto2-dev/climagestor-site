@@ -63,3 +63,10 @@ Usar o nome ClimaGestor em wordmark tipográfico azul-marinho com o símbolo ori
 ## Signature Brand Color
 
 **Azul Clima `#0F2B63`** — azul-marinho proprietário que comunica controle, confiança e organização de operação.
+
+## Style Decisions
+
+- Reforçar a assinatura visual com o símbolo de três barras em tags, painéis e divisores, junto do enquadramento curvo do hero.
+- Toda headline principal deve conter pelo menos um termo concreto da operação de climatização: clientes, aparelhos, BTUs, PMOC, preventivas, ordens de serviço ou técnicos em campo.
+- Os screenshots reais do painel e das ordens de serviço são a principal prova de produto; não substituir por mockups genéricos.
+- Usar copy local e prático, citando Aracaju e a rotina de campo, evitando promessas abstratas de crescimento.

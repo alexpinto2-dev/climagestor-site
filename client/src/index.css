@@ -1,6 +1,7 @@
 /* ClimaGestor — Referência PDF: SaaS institucional de climatização, fundo claro, azul-marinho e cards técnicos. */
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./premium.css";
 
 @custom-variant dark (&:is(.dark *));
 
