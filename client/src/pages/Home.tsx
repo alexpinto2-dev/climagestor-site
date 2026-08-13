@@ -25,12 +25,12 @@ import {
   X,
 } from "lucide-react";
 
-const heroImage = "/assets/climagestor-ac-hero.jpg";
-const equipmentImage = "/assets/climagestor-equipment-detail.jpg";
+const heroImage = "/assets/climagestor-ac-hero.webp";
+const equipmentImage = "/assets/climagestor-equipment-detail.webp";
 const dashboardImage = "/assets/climagestor-dashboard-real.png";
 const ordersImage = "/assets/climagestor-orders-real.png";
-const userLogoLightSrc = "/assets/climagestor-logo-light.png";
-const userLogoHeaderSrc = "/assets/climagestor-logo-header-compact.png";
+const userLogoLightSrc = "/assets/climagestor-logo-light.webp";
+const userLogoHeaderSrc = "/assets/climagestor-logo-header-compact.webp";
 const whatsappHref = "https://wa.me/5579988028287?text=Ol%C3%A1%21%20Quero%20conhecer%20o%20ClimaGestor.";
 const authHref = "https://climagestor.lovable.app/auth";
 
