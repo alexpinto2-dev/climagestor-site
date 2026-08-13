@@ -20,6 +20,14 @@ Não é necessário comprar ou alterar DNS agora. A compra do domínio e qualque
 
 Logo, hero e screenshots estão em `client/public/assets` e são referenciados com caminhos `/assets/...`. Assim, a Vercel entrega os arquivos diretamente junto com o build, sem depender de caminhos internos do Manus.
 
+## Captura de leads
+
+O CTA final inclui um formulário curto com nome, WhatsApp e intenção de contato. Como a landing page continua estática, o formulário não grava dados em banco: após a validação, ele abre o WhatsApp comercial com uma mensagem pré-preenchida. Para persistência, automações ou distribuição para CRM, será necessário conectar um backend ou serviço de formulários posteriormente.
+
+## SEO social e técnico
+
+O head inclui Open Graph, Twitter Card, canonical, `robots.txt`, `sitemap.xml` e JSON-LD básico para o ClimaGestor como aplicação web voltada a empresas de climatização em Aracaju. A imagem de compartilhamento usa o hero servido em `/assets/climagestor-ac-hero.webp`.
+
 ### Diagnóstico da publicação
 
 O endereço publicado originalmente referenciava `/manus-storage/...`, caminhos internos do ambiente Manus que retornavam falha na Vercel. A correção foi migrada para `/assets/...`; após o redeploy, a logo, o hero e os screenshots retornaram HTTP 200 no endereço `climagestor-site.vercel.app` e a página passou a referenciar somente os caminhos estáticos do projeto.
