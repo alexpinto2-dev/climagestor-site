@@ -28,6 +28,6 @@
 - [x] Verificar o repositório GitHub `climagestor-site` e o estado local antes da sincronização.
 - [x] Sincronizar a versão atual da landing page com o repositório remoto.
 - [x] Confirmar commit, branch e estado final no GitHub.
-- [ ] Verificar compatibilidade do projeto atual com o build da Vercel.
-- [ ] Preparar a configuração de deploy sem alterar a lógica da landing page.
-- [ ] Documentar os próximos passos para comprar e conectar `climagestor.com.br`.
+- [x] Verificar compatibilidade do projeto atual com o build da Vercel.
+- [x] Preparar a configuração de deploy sem alterar a lógica da landing page.
+- [x] Documentar os próximos passos para comprar e conectar `climagestor.com.br`.
