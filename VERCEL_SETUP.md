@@ -16,6 +16,6 @@ Quando `climagestor.com.br` for comprado, adicione-o em **Project Settings → D
 
 Não é necessário comprar ou alterar DNS agora. A compra do domínio e qualquer mudança no registrador devem ser confirmadas pelo proprietário antes da execução.
 
-## Observação sobre assets
+## Assets estáticos
 
-As imagens atuais usam caminhos de armazenamento do ambiente Manus. Antes de publicar definitivamente na Vercel, valide os screenshots e as imagens do hero no preview da Vercel; se algum caminho `/manus-storage/...` não for servido fora do Manus, os assets deverão ser migrados para um CDN ou para a própria entrega estática da Vercel.
+Logo, hero e screenshots estão em `client/public/assets` e são referenciados com caminhos `/assets/...`. Assim, a Vercel entrega os arquivos diretamente junto com o build, sem depender de caminhos internos do Manus.
