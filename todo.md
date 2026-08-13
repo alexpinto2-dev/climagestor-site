@@ -31,3 +31,6 @@
 - [x] Verificar compatibilidade do projeto atual com o build da Vercel.
 - [x] Preparar a configuração de deploy sem alterar a lógica da landing page.
 - [x] Documentar os próximos passos para comprar e conectar `climagestor.com.br`.
+- [x] Inspecionar a publicação Vercel e confirmar quais assets estão retornando erro.
+- [x] Migrar logo, hero e screenshots para assets estáticos servidos pelo projeto.
+- [x] Validar referências, build e sincronização no GitHub para novo redeploy.
