@@ -19,3 +19,7 @@ Não é necessário comprar ou alterar DNS agora. A compra do domínio e qualque
 ## Assets estáticos
 
 Logo, hero e screenshots estão em `client/public/assets` e são referenciados com caminhos `/assets/...`. Assim, a Vercel entrega os arquivos diretamente junto com o build, sem depender de caminhos internos do Manus.
+
+### Diagnóstico da publicação
+
+O endereço publicado originalmente referenciava `/manus-storage/...`, caminhos internos do ambiente Manus que retornavam falha na Vercel. A correção foi migrada para `/assets/...`; após o redeploy, a logo, o hero e os screenshots retornaram HTTP 200 no endereço `climagestor-site.vercel.app` e a página passou a referenciar somente os caminhos estáticos do projeto.
