@@ -25,6 +25,6 @@
 - [x] Remover o fundo escuro da assinatura e aplicar degradê claro até branco no lado direito.
 - [x] Preparar uma variação da logo para aplicação sobre o fundo claro do topo.
 - [x] Validar topo, rodapé e responsividade e salvar checkpoint.
-- [ ] Verificar o repositório GitHub `climagestor-site` e o estado local antes da sincronização.
-- [ ] Sincronizar a versão atual da landing page com o repositório remoto.
-- [ ] Confirmar commit, branch e estado final no GitHub.
+- [x] Verificar o repositório GitHub `climagestor-site` e o estado local antes da sincronização.
+- [x] Sincronizar a versão atual da landing page com o repositório remoto.
+- [x] Confirmar commit, branch e estado final no GitHub.
