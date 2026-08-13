@@ -34,3 +34,8 @@
 - [x] Inspecionar a publicação Vercel e confirmar quais assets estão retornando erro.
 - [x] Migrar logo, hero e screenshots para assets estáticos servidos pelo projeto.
 - [x] Validar referências, build e sincronização no GitHub para novo redeploy.
+- [x] Adicionar formulário curto de lead com nome, WhatsApp e intenção de demonstração.
+- [x] Conectar o envio do formulário ao WhatsApp com mensagem pré-preenchida e feedback acessível.
+- [x] Adicionar Open Graph, Twitter Card, canonical e dados estruturados básicos.
+- [x] Validar responsividade, acessibilidade, SEO, performance e build final.
+- [ ] Confirmar o redeploy automático da Vercel com o commit `c78e49e`.
