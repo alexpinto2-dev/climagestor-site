@@ -39,7 +39,3 @@
 - [x] Adicionar Open Graph, Twitter Card, canonical e dados estruturados básicos.
 - [x] Validar responsividade, acessibilidade, SEO, performance e build final.
 - [ ] Confirmar o redeploy automático da Vercel com o commit `c78e49e`.
-- [x] Adicionar estado de carregamento no envio do formulário.
-- [x] Exibir confirmação visual acessível antes de abrir o WhatsApp.
-- [x] Criar fallback caso o navegador bloqueie a nova aba.
-- [x] Validar interação, responsividade e build após a melhoria.

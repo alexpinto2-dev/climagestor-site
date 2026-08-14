@@ -13,7 +13,6 @@ import {
   ClipboardCheck,
   ClipboardList,
   Gauge,
-  LoaderCircle,
   Menu,
   MessagesSquare,
   PackageSearch,
@@ -97,10 +96,7 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [lead, setLead] = useState({ name: "", whatsapp: "", intent: "" });
-  const [leadSubmitting, setLeadSubmitting] = useState(false);
   const [leadSent, setLeadSent] = useState(false);
-  const [leadWhatsappUrl, setLeadWhatsappUrl] = useState("");
-  const [leadPopupBlocked, setLeadPopupBlocked] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -134,24 +130,9 @@ export default function Home() {
 
   const handleLeadSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (leadSubmitting) return;
     const message = `Olá! Quero uma demonstração do ClimaGestor.%0A%0ANome: ${encodeURIComponent(lead.name)}%0AWhatsApp: ${encodeURIComponent(lead.whatsapp)}%0AInteresse: ${encodeURIComponent(lead.intent)}`;
-    const whatsappUrl = `https://wa.me/5579988028287?text=${message}`;
-    const whatsappWindow = window.open("about:blank", "_blank", "noopener,noreferrer");
-    setLeadWhatsappUrl(whatsappUrl);
-    setLeadPopupBlocked(!whatsappWindow);
-    setLeadSent(false);
-    setLeadSubmitting(true);
-
-    window.setTimeout(() => {
-      setLeadSubmitting(false);
-      setLeadSent(true);
-      window.setTimeout(() => {
-        if (whatsappWindow && !whatsappWindow.closed) {
-          whatsappWindow.location.href = whatsappUrl;
-        }
-      }, 420);
-    }, 720);
+    setLeadSent(true);
+    window.open(`https://wa.me/5579988028287?text=${message}`, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -193,7 +174,7 @@ export default function Home() {
 
         <section className="steps-section section-white scroll-reveal"><div className="container"><div className="section-heading"><SectionTag>Próximos passos</SectionTag><h2>Organize o campo. <span>Ganhe previsibilidade.</span></h2><p>Uma empresa de climatização cresce melhor quando cada atendimento tem histórico, cada técnico tem contexto e cada preventiva tem hora certa.</p></div><div className="steps-grid scroll-reveal-stagger">{nextSteps.map((step) => <article className="step-card" key={step.number}><span className="step-number">{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></article>)}</div></div></section>
 
-        <section id="contato" className="contact-section scroll-reveal"><div className="container"><div className="section-heading"><SectionTag>Comece agora em Aracaju</SectionTag><h2>Vamos testar <span>juntos?</span></h2><p>Estamos selecionando empresas de Aracaju e região para usar e ajustar o ClimaGestor na prática. Uma oportunidade de conhecer o sistema sem compromisso e sem custo inicial.</p></div><div className="contact-cards scroll-reveal-stagger"><article><div className="contact-icon"><Sparkles size={21} /></div><h3>Acesso Gratuito</h3><p>Teste com os dados da sua operação e veja o ganho de clareza antes de decidir.</p></article><article><div className="contact-icon"><Wrench size={21} /></div><h3>Ajustes Personalizados</h3><p>A gente adapta a rotina do sistema ao jeito que sua equipe realmente trabalha.</p></article><article><div className="contact-icon"><ShieldCheck size={21} /></div><h3>Sem Custo Inicial</h3><p>Comece sem risco e valide o valor do ClimaGestor no dia a dia da sua empresa.</p></article></div><div className="lead-capture scroll-reveal"><div className="lead-capture-copy"><span className="lead-capture-kicker">Agende uma conversa</span><h3>Conte como sua operação funciona.</h3><p>Preencha seus dados. O time ClimaGestor abre o WhatsApp com uma mensagem pronta para combinar a demonstração.</p><div className="lead-proof"><CheckCircle2 size={16} /><span>Resposta rápida, sem compromisso e com foco na rotina da sua equipe.</span></div></div><form className="lead-form" onSubmit={handleLeadSubmit} aria-describedby="lead-form-note"><div className="lead-field"><label htmlFor="lead-name">Seu nome</label><input id="lead-name" name="name" type="text" autoComplete="name" placeholder="Como podemos chamar você?" value={lead.name} onChange={(event) => setLead({ ...lead, name: event.target.value })} required /></div><div className="lead-field"><label htmlFor="lead-whatsapp">WhatsApp</label><input id="lead-whatsapp" name="whatsapp" type="tel" inputMode="tel" autoComplete="tel" placeholder="(79) 99999-9999" value={lead.whatsapp} onChange={(event) => setLead({ ...lead, whatsapp: event.target.value })} required /></div><div className="lead-field"><label htmlFor="lead-intent">O que você busca?</label><select id="lead-intent" name="intent" value={lead.intent} onChange={(event) => setLead({ ...lead, intent: event.target.value })} required><option value="" disabled>Selecione uma opção</option><option>Quero uma demonstração</option><option>Quero organizar as ordens de serviço</option><option>Quero controlar PMOC e preventivas</option></select></div><button type="submit" className="button button--primary lead-submit" disabled={leadSubmitting} aria-busy={leadSubmitting}>{leadSubmitting ? <><span className="lead-spinner" aria-hidden="true" /> Preparando WhatsApp…</> : leadSent ? <><CheckCircle2 size={16} /> Mensagem pronta</> : <>Quero demonstração <ArrowRight size={16} /></>}</button><p id="lead-form-note" className="lead-form-note">Ao enviar, você verá uma confirmação antes de abrir o WhatsApp comercial.</p>{leadSent && <p className="lead-success" role="status"><CheckCircle2 size={15} /> Mensagem preparada. {leadPopupBlocked ? "O navegador bloqueou a nova aba." : "O WhatsApp será aberto agora."} {leadWhatsappUrl && <a href={leadWhatsappUrl} target="_blank" rel="noreferrer">Abrir manualmente</a>}</p>}</form></div><div className="contact-bottom scroll-reveal"><p>Quer ver sua operação organizada de verdade? Fale com um especialista e agende uma demonstração com seus próprios dados.</p><div className="contact-actions"><a href={whatsappHref} target="_blank" rel="noreferrer" className="button button--primary">Falar no WhatsApp <PhoneCall size={16} /></a><a href={authHref} target="_blank" rel="noreferrer" className="button button--outline">Testar Grátis <ArrowRight size={16} /></a></div></div></div></section>
+        <section id="contato" className="contact-section scroll-reveal"><div className="container"><div className="section-heading"><SectionTag>Comece agora em Aracaju</SectionTag><h2>Vamos testar <span>juntos?</span></h2><p>Estamos selecionando empresas de Aracaju e região para usar e ajustar o ClimaGestor na prática. Uma oportunidade de conhecer o sistema sem compromisso e sem custo inicial.</p></div><div className="contact-cards scroll-reveal-stagger"><article><div className="contact-icon"><Sparkles size={21} /></div><h3>Acesso Gratuito</h3><p>Teste com os dados da sua operação e veja o ganho de clareza antes de decidir.</p></article><article><div className="contact-icon"><Wrench size={21} /></div><h3>Ajustes Personalizados</h3><p>A gente adapta a rotina do sistema ao jeito que sua equipe realmente trabalha.</p></article><article><div className="contact-icon"><ShieldCheck size={21} /></div><h3>Sem Custo Inicial</h3><p>Comece sem risco e valide o valor do ClimaGestor no dia a dia da sua empresa.</p></article></div><div className="lead-capture scroll-reveal"><div className="lead-capture-copy"><span className="lead-capture-kicker">Agende uma conversa</span><h3>Conte como sua operação funciona.</h3><p>Preencha seus dados. O time ClimaGestor abre o WhatsApp com uma mensagem pronta para combinar a demonstração.</p><div className="lead-proof"><CheckCircle2 size={16} /><span>Resposta rápida, sem compromisso e com foco na rotina da sua equipe.</span></div></div><form className="lead-form" onSubmit={handleLeadSubmit} aria-describedby="lead-form-note"><div className="lead-field"><label htmlFor="lead-name">Seu nome</label><input id="lead-name" name="name" type="text" autoComplete="name" placeholder="Como podemos chamar você?" value={lead.name} onChange={(event) => setLead({ ...lead, name: event.target.value })} required /></div><div className="lead-field"><label htmlFor="lead-whatsapp">WhatsApp</label><input id="lead-whatsapp" name="whatsapp" type="tel" inputMode="tel" autoComplete="tel" placeholder="(79) 99999-9999" value={lead.whatsapp} onChange={(event) => setLead({ ...lead, whatsapp: event.target.value })} required /></div><div className="lead-field"><label htmlFor="lead-intent">O que você busca?</label><select id="lead-intent" name="intent" value={lead.intent} onChange={(event) => setLead({ ...lead, intent: event.target.value })} required><option value="" disabled>Selecione uma opção</option><option>Quero uma demonstração</option><option>Quero organizar as ordens de serviço</option><option>Quero controlar PMOC e preventivas</option></select></div><button type="submit" className="button button--primary lead-submit">Quero demonstração <ArrowRight size={16} /></button><p id="lead-form-note" className="lead-form-note">Ao enviar, você será direcionado para o WhatsApp comercial do ClimaGestor.</p>{leadSent && <p className="lead-success" role="status"><CheckCircle2 size={15} /> Mensagem preparada. Se o WhatsApp não abrir, use o botão abaixo.</p>}</form></div><div className="contact-bottom scroll-reveal"><p>Quer ver sua operação organizada de verdade? Fale com um especialista e agende uma demonstração com seus próprios dados.</p><div className="contact-actions"><a href={whatsappHref} target="_blank" rel="noreferrer" className="button button--primary">Falar no WhatsApp <PhoneCall size={16} /></a><a href={authHref} target="_blank" rel="noreferrer" className="button button--outline">Testar Grátis <ArrowRight size={16} /></a></div></div></div></section>
       </main>
 
       <footer className="site-footer"><div className="container footer-inner"><div className="footer-brand"><div className="footer-logo-visual"><img src={userLogoLightSrc} alt="Logotipo ClimaGestor" loading="lazy" decoding="async" /></div><p>Gestão completa para empresas de ar-condicionado e refrigeração.</p></div><div className="footer-links"><a href="#solucao">Solução</a><a href="#recursos">Recursos</a><a href="#pmoc">PMOC</a><a href="#contato">Falar com o time</a></div><div className="footer-meta"><span>© 2026 ClimaGestor</span><span>Aracaju e região</span></div></div></footer>
